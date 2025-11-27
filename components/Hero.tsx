@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useRef, RefObject } from 'react';
+import React, { useRef } from 'react';
 import VariableProximity from './VariableProximity';
 import CountdownTimer from './CountdownTimer';
 
 const Hero: React.FC = () => {
-  const containerRef = useRef<HTMLElement>(null);  // Changed from useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   
   const LAUNCH_DATE = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
 
   return (
-    <main 
+    <div 
       ref={containerRef}
       className="flex-grow flex flex-col justify-center items-center px-4 w-full z-10 py-12 md:py-0"
     >
@@ -38,12 +38,8 @@ const Hero: React.FC = () => {
 
         <CountdownTimer targetDate={LAUNCH_DATE} />
       </div>
-    </main>
+    </div>
   );
-};
-
-type Props = {
-  containerRef: RefObject<HTMLElement | null>;
 };
 
 export default Hero;

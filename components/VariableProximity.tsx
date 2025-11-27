@@ -7,7 +7,7 @@ interface VariableProximityProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   fromFontVariationSettings: string;
   toFontVariationSettings: string;
-  containerRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   radius?: number;
   falloff?: "linear" | "exponential" | "gaussian";
 }
