@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, RefObject } from 'react';
 import VariableProximity from './VariableProximity';
 import CountdownTimer from './CountdownTimer';
 
 const Hero: React.FC = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);  // Changed from useRef(null)
   
   const LAUNCH_DATE = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
 
@@ -40,6 +40,10 @@ const Hero: React.FC = () => {
       </div>
     </main>
   );
+};
+
+type Props = {
+  containerRef: RefObject<HTMLElement | null>;
 };
 
 export default Hero;
